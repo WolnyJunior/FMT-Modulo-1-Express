@@ -17,7 +17,7 @@ app.get('/listar', registroEntrada, (req, res) => {
     res.json(produtos)
 })
 
-
+//Esta rota faz parte dos exercicio 3 e 4 - por enquanto
 app.get('/buscaID/:id', registroEntrada,  (req, res)=>{
     const {id}= req.params
     const produto = produtos.find(produto=>produto.id==parseInt(id))
@@ -25,7 +25,9 @@ app.get('/buscaID/:id', registroEntrada,  (req, res)=>{
         res.status(404).send("Produto não encontrado.")
         return
     }
-    res.json(produto)
+    //res.json(produto)
+    res.send(`O produto solicitado pelo id: ${id}`)
+    
 })
 
 app.post('/adicionar', registroEntrada, (req, res)=>{
